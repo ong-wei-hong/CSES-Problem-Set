@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int n;
+  cin>>n;
+  for(int i=1; i<=n; i++){
+    /*total number of ways to arrange two knights =
+      total number of ways to arrange two pieces (1/2 (number of squares * (number of squares-1)) -
+      total number of ways for two knights to attack each other (2 * (number of 3*2 rect + number of 2*3 rect)) */
+    cout<<0.5*n*n*(n*n-1)-2*(n-1)(n-2);
+  }
+}
