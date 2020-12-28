@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int n;
+  cin>>n;
+  vector<long long> v;
+  long long sum=0;
+  for(int i=0; i<n; i++){
+    long long num;
+    cin>>num;
+    sum+=num;
+    v.push_back(num);
+  }
+  long long minDiff=sum;
+
+  for(int i=0; i<n; i++){
+    long long currSum, currSum2;
+    int x=i;
+    currSum2=v[i];
+    do{
+      currSum2=currSum;
+      currSum+=v[x];
+      x++;
+    }while(x<n&&currSum<sum/2);
+    if(((sum/2)-currSum2)<minDiff){
+      minDiff=(sum/2)-currSum2;
+    }
+    if((currSum-sum/2)<minDiff){
+      minDiff=currSum-sum/2;
+    }
+  }
+  cout<<minDiff;
+}
