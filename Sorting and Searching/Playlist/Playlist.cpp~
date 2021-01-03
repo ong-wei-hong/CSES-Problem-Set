@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int n;
+  cin>>n;
+  set<int> s;
+  int ans=0; curr=0;
+  for(int i=0; i<n; ++i){
+    int k;
+    cin>>k;
+    if(s.find(k)==s.end()){
+      curr=0;
+      s.clear();
+    }else{
+      s.insert(k);
+      ++curr;
+    }
+    ans=max(curr, ans);
+  }
+  cout<<ans;
+}

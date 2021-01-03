@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int n, m;
+  cin>>n>>m;
+  unordered_map<int, int> m;
+  for(int i=0; i<n; ++i){
+    int h;
+    cin>>h;
+    if(m.find(h)==m.end()){
+      m.insert(h, 1);
+    }else{
+      m.at(h)+=1;
+    }
+  }
+  for(int i=0; i<m; ++i){
+    int t;
+    cin>>t;
+    unordered_map<int, int>::iterator it=m.lower_bound(t);
+    if(it==m.end()){
+      cout<<-1<<end;
+    }else{
+      cout<<it.first<<endl;
+      if(it.second==1){
+	m.erase(it.first);
+      }else{
+	m.at(it.first)-=1;
+      }
+  }
+}

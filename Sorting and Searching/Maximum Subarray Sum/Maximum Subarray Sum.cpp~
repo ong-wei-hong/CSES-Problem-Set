@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define MIN -1e9
+
+int main(){
+  ll max=MIN, curr_sum=MIN;
+  int a, n;
+  cin>>n;
+  for(int i=0; i<n; ++i){
+    cin>>a;
+    curr_sum+=a;
+    if(a>curr_sum){
+      curr_sum=a;
+    }
+    if(curr_sum>max){
+      max=curr_sum;
+    }
+  }
+  cout<<max;
+}
