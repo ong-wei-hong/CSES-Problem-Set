@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int n, x;
+  cin>>x>>n;
+  int start=0, end=x, mid=x/2, ans;
+  bool half=0;
+  for(int i=0; i<n; ++i){
+    int p;
+    cin>>p;
+    if(p>start&&p<end){
+      if(half){
+	if(p>mid){
+	  end=mid;
+	  mid=(end+start)/2;
+	  ans=end-start;
+	  half=0;
+	}else if(p<mid){
+	  start=mid;
+	  mid=(end+start)/2;
+	  ans=(end-start);
+	  half=0;
+	}
+      }else if((end-start)%2==0&&p==mid){
+	half=1;
+	ans=(mid-start);
+      }else if(p>mid){
+	end=p;
+	mid=(end+start)/2;
+	ans=end-start;
+      }else if(p<=mid){
+	start=p;
+	mid=(end+start)/2;
+	ans=end-start;
+      }
+    }
+    cout<<ans<<" ";
+  }
+}
