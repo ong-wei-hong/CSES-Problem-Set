@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+ 
+int main(){
+  int n, most=0;
+  cin>>n;
+  ll sum=0;
+  for(int i=0; i<n; ++i){
+    int t;
+    cin>>t;
+    most=max(t, most);
+    sum+=t;
+  }
+  cout<<max(sum, 2LL*most);
+}
