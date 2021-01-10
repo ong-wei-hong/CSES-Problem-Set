@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ar array
+
+int main(){
+  int n, x;
+  cin>>n>>x;
+  int a[n];
+  for(int i=0; i<n; ++i)
+    cin>>a[i];
+  map<int, ar<int, 2>> m;//map stores sum of 2 values and the position of the values
+  //finds the two values which would add to x with the sum of two values in map
+  for(int i=0; i<n; ++i){
+    for(int j=i+1; j<n; ++j)
+      if(m.find(x-a[i]-a[j])!=m.end()){
+	ar<int, 2> p=m[x-a[i]-a[j]];
+	cout<<i+1<<j+1<<p[0]+1<<p[1]+1;
+	return 0;
+      }
+    for(int j=0; j<i; ++j)
+      m[a[i]+a[j]]={i, j};
+  }
+  cout<<"IMPOSSIBLE";
+}
