@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ar array
+
+int main(){
+  int n, k;
+  cin>>n>>k;
+  multiset<int>s;
+  int x[n];
+  for(int i=0; i<n; ++i)
+    cin>>x[i];
+  for(int i=0; i<k-1; ++i)
+    s.insert(x[i]);
+  for(int i=k-2; i<n; ++i){
+    s.insert(x[i]);
+    cout<< *next(s.begin(), k/2);<<" ";
+    s.erase(s.find(x[i-k+2]);
+  }
+}
