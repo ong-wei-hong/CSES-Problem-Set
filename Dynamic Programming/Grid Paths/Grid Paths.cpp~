@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+
+int n, maxN=1000, M=1e9+7;
+ll paths[maxN][maxN];
+string s[maxN];
+
+int main(){
+  cin>>n;
+  for(int i=0; i<n; ++i)
+    cin>>s[i];
+  paths[0][0]=1;
+  for(int i=0; i<n; ++i){
+    for(int j=0; j<n; ++j){
+      if(i)
+	paths[i][j]+=paths[i-1][j];
+      if(j)
+	paths[i][j]+=paths[i][j-1];
+      paths[i][j]%=M;
+      if(s[i][j]='*')
+	paths[i][j]=0;
+    }
+  }
+  cout<<paths[n-1][n-1];
+}

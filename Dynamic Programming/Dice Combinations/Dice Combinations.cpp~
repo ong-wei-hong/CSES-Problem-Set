@@ -1,0 +1,17 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+const int M=1e9+7;
+  
+int main(){
+  cin>>n;
+  ll a[n+1];
+  a[0]=1;
+  for(int i=0; i<=n; ++1){
+    for(int j=1; j<=min(i, 6); ++j)
+      a[i]+=a[i-j]%M; //the number of combination follows the fibonacci sequence, but up to 6 previous numbers only as a dice can only roll 6 max
+  }
+  cout<<a[n];
+}
