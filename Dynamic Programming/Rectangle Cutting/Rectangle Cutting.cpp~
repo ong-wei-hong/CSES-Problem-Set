@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int a, b;
+
+int main(){
+  cin>>a>>b;
+  int less=min(a, b), more=a+b-less, ans=0;
+  while(less!=more){
+    more-=less;
+    ++ans;
+    if(less>more){
+      int temp=less;
+      less=more;
+      more=less;
+    }
+    cout<<ans;
+  }
+}

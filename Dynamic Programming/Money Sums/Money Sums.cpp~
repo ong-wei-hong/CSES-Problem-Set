@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int n;
+  cin>>n;
+  set<int> ans;
+  for(int i=0; i<n; ++i){
+    int x;
+    cin>>x;
+    for(set<int>::iterator it=ans.begin(); it!=ans.end(); ++it)
+      ans.insert(*it + x);
+    ans.insert(x);
+  }
+  cout<<ans.size()<<endl;
+  for(int i: ans)
+    cout<<i<<" ";
+}
